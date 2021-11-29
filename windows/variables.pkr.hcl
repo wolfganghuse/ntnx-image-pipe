@@ -1,13 +1,13 @@
-variable "nutanix_username" {
+variable "PC_USER" {
   type = string
 }
 
-variable "nutanix_password" {
+variable "PC_PASS" {
   type =  string
   sensitive = true
 }
 
-variable "nutanix_endpoint" {
+variable "PC_ENDPOINT" {
   type = string
 }
 

@@ -1,7 +1,7 @@
 source "nutanix" "windows" {
   nutanix_username = "${var.PC_USER}"
   nutanix_password = "${var.PC_PASS}"
-  nutanix_endpoint = "https://${var.PC_IP}:${var.PC_PORT}"
+  nutanix_endpoint = "${var.PC_ENDPOINT}"
   nutanix_insecure = var.nutanix_insecure
   cluster          = var.nutanix_cluster
   
