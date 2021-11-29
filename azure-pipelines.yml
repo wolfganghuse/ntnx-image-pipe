@@ -1,32 +1,39 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-name: 0.1.$(Rev:r)
-
-variables:
-#  - group: hpoc-prism-central
-  - group: demo-cluster
-
 trigger:
-  - main
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - windows/*
 
-pool: 'default'
+schedules:
+- cron: "0 1 * * 0"
+  displayName: Weekly Sunday build
+  branches:
+    include:
+    - main
+  always: true
 
-stages:
+pool:
 
-- stage: Deploy
-  jobs:
-  - deployment: CreateImage
-    displayName: 'Create Image'
-    container:
-      image: hashicorp/packer:latest
-    environment: 'dev'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: self
-          
-          - script: |
-              validate .
+  name: default
+
+steps:
+
+- task: CopyFiles@2
+
+  displayName: 'Copy Packer Files to Artifacts'
+
+  inputs:
+
+    SourceFolder: windows
+
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    cleanTargetFolder: true
+
+
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: PackerConfig
