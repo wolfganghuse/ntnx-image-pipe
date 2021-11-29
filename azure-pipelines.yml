@@ -32,6 +32,13 @@ steps:
     cleanTargetFolder: true
 
 - task: CmdLine@2
+  displayName: 'Validate Build'
   inputs:
     script: 'packer validate .'
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
+
+- task: CmdLine@2
+  displayName: 'Building Image'
+  inputs:
+    script: 'packer build .'
     workingDirectory: '$(Build.ArtifactStagingDirectory)'
