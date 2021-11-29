@@ -1,6 +1,6 @@
 variables:
 #  - group: hpoc-prism-central
-  - group: demo-cluster
+  - group: packer-demo
 
 trigger:
   branches:
