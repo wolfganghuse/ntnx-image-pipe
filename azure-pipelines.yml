@@ -31,9 +31,10 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
 
-
-
-- task: PublishPipelineArtifact@1
+- task: Bash@3
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)'
-    artifact: PackerConfig
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      packer validate .
