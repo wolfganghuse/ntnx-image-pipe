@@ -37,11 +37,3 @@ variable "nutanix_cluster" {
   type = string
 }
 
-variable "nutanix_user_data" {
-  type = string
-}
-
-variable "nutanix_user_data_windows" {
-  type = string
-}
-
