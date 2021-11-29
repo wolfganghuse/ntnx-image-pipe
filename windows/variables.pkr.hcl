@@ -4,7 +4,6 @@ variable "PC_USER" {
 
 variable "PC_PASS" {
   type =  string
-  sensitive = true
 }
 
 variable "PC_ENDPOINT" {

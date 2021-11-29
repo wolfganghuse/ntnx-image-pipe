@@ -38,6 +38,12 @@ steps:
 - task: CmdLine@2
   displayName: 'Validate Build'
   inputs:
+    script: 'echo $(PKR_VAR_PC_USER)'
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
+
+- task: CmdLine@2
+  displayName: 'Validate Build'
+  inputs:
     script: 'packer validate .'
     workingDirectory: '$(Build.ArtifactStagingDirectory)'
 
