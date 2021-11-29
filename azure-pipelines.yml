@@ -2,18 +2,31 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+name: 0.1.$(Rev:r)
+
+variables:
+#  - group: hpoc-prism-central
+  - group: demo-cluster
 
 trigger:
-- main
+  - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: 'default'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- stage: Deploy
+  jobs:
+  - deployment: CreateImage
+    displayName: 'Create Image'
+    container:
+      image: hashicorp/packer:latest
+    environment: 'dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          
+          - script: |
+              validate .
