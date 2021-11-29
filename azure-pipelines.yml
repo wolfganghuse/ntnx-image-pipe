@@ -31,7 +31,7 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
 
-- task: Bash@3
+- task: CmdLine@2
   inputs:
-    filePath: '$(Build.ArtifactStagingDirectory)/packer'
-    arguments: 'validate .'
+    script: 'packer validate .'
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
