@@ -38,7 +38,7 @@ steps:
 - task: CmdLine@2
   displayName: 'Show Var'
   inputs:
-    script: 'echo $(PKR_VAR_PC_USER)'
+    script: 'echo $PKR_VAR_PC_USER'
     workingDirectory: '$(Build.ArtifactStagingDirectory)'
 
 - task: CmdLine@2
