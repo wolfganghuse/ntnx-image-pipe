@@ -28,7 +28,7 @@ steps:
 
     SourceFolder: windows
 
-    TargetFolder:
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
 
 - task: Bash@3
