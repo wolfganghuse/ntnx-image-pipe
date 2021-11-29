@@ -36,7 +36,7 @@ steps:
     cleanTargetFolder: true
 
 - task: CmdLine@2
-  displayName: 'Validate Build'
+  displayName: 'Show Var'
   inputs:
     script: 'echo $(PKR_VAR_PC_USER)'
     workingDirectory: '$(Build.ArtifactStagingDirectory)'
