@@ -20,9 +20,11 @@ source "nutanix" "windows" {
       disk_size_gb = 40
   }
 
+  vm_nics {
+    subnet_name       = var.nutanix_subnet
+  }
+    
   cd_files         = ["scripts/gui/autounattend.xml","scripts/win-update.ps1"]
-  
-  subnet_name       = var.nutanix_subnet
   image_name        ="win-{{isotime `Jan-_2-15:04:05`}}"
   shutdown_command  = "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\""
   shutdown_timeout  = "2m"
