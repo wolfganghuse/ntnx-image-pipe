@@ -16,7 +16,7 @@ source "nutanix" "windows" {
   }
 
   vm_disks {
-      disk_type = "DISK"
+      image_type = "DISK"
       disk_size_gb = 40
   }
 
