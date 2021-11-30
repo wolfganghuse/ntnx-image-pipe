@@ -6,13 +6,13 @@ source "nutanix" "windows" {
   cluster          = var.nutanix_cluster
   
   vm_disks {
-      disk_type = "CDROM"
-      source_image_name = "Windows_Server_2016.ISO"
+      image_type = "ISO_IMAGE"
+      source_image_name = "15842c26-0e66-472b-9549-3e9c75e81d50"
   }
 
   vm_disks {
-      disk_type = "CDROM"
-      source_image_name = "Nutanix-VirtIO-1.1.7"
+      image_type = "ISO_IMAGE"
+      source_image_name = "861afb4c-ae57-4810-a469-a3ad7c42473a"
   }
 
   vm_disks {
