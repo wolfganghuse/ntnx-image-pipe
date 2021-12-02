@@ -4,7 +4,7 @@
 $ProgressPreference = "SilentlyContinue"
 
 Write-Output "Starting PSWindowsUpdate Installation"
-Write-Output "Starting PSWindowsUpdate Installation"
+
 
 ## ACTUAL NOT WORKING SCRIPT
 # # Install PSWindowsUpdate for scriptable Windows Updates
