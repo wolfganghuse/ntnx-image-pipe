@@ -36,7 +36,7 @@ source "nutanix" "windows" {
   cd_files         = ["scripts/gui/autounattend.xml"]
   image_name        ="win-{{isotime `Jan-_2-15:04:05`}}"
   shutdown_command  = "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\""
-  shutdown_timeout  = "2m"
+  shutdown_timeout  = "3m"
   cpu               = 2
   os_type           = "Windows"
   memory_mb         = "8192"
@@ -44,7 +44,7 @@ source "nutanix" "windows" {
   winrm_port        = 5986
   winrm_insecure    = true
   winrm_use_ssl     = true
-  winrm_timeout     = "30m"
+  winrm_timeout     = "45m"
   winrm_password    = "packer"
   winrm_username    = "Administrator"
 }
